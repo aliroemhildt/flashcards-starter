@@ -70,7 +70,7 @@ describe('Turn', function() {
 
   //should give feedback about guess - giveFeedback
   //Q: is it okay to have this depend on if evaluateGuess is ran? otherwise they would repeat same logic in each function
-  // but maybe its better to not have them depend on each other? 
+  // but maybe its better to not have them depend on each other? Should i run evaluateGuess inside giveFeedback?
   it('should give feedback about the guess', function() {
     const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
 
@@ -81,8 +81,6 @@ describe('Turn', function() {
     const turn2 = new Turn('object', card);
     turn2.evaluateGuess();
     feedback2 = turn2.giveFeedback();
-
-
 
     expect(feedback1).to.equal('incorrect!');
     expect(feedback2).to.equal('correct!');
