@@ -1,6 +1,5 @@
 const chai = require('chai');
 const expect = chai.expect;
-
 const Deck = require('../src/Deck');
 const Card = require('../src/Card');
 
@@ -24,7 +23,6 @@ describe('Deck', function() {
     expect(deck).to.be.an.instanceof(Deck);
   });
 
-  //Q: should i create a count property so that the value is accessible, and the function just returns it? or should I only return it in the function
   it('should store a deck of cards', function() {
     expect(deck.cards).to.equal(cards);
   });

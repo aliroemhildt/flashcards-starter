@@ -31,16 +31,14 @@ describe('Round', function() {
     expect(round).to.be.an.instanceof(Round);
   });
 
-  //Q: should i have a property that keeps track of this and just return that?
   it('should return the current card in play', function() {
     let currentCard = round.returnCurrentCard();
 
     expect(currentCard).to.equal(card1);
   });
 
-  // should there be a property for turn, or just return the instance of Turn?
   it('should create a new turn instance', function() {
-    let turn = round.takeTurn();
+    round.takeTurn();
 
     expect(round.currentTurn).to.be.an.instanceof(Turn);
   });
@@ -63,7 +61,8 @@ describe('Round', function() {
 
   it('should store incorrect guesses', function() {
     round.takeTurn('array');
-    expect(round.incorrectGuesses).to.deep.equal([1]); // works with deep equal but not equal, why???
+
+    expect(round.incorrectGuesses).to.deep.equal([1]);
   });
 
   it('should return feedback about guess', function() {
@@ -73,22 +72,21 @@ describe('Round', function() {
   });
 
   it('should calculate the percentage of correct guesses', function() {
-    round.takeTurn('array') //incorrect
-    round.takeTurn('array') //correct
-    round.takeTurn('mutator method') //correct
+    round.takeTurn('array'); //incorrect
+    round.takeTurn('array'); //correct
+    round.takeTurn('mutator method'); //correct
 
     let percent = round.calculatePercentCorrect();
 
-    expect(percent).to.equal(Math.round((2/3) * 100));
-  })
+    expect(percent).to.equal(Math.round((2 / 3) * 100));
+  });
 
   it('should notify player when round ends', function() {
-    round.takeTurn('array')
-    round.takeTurn('array')
-    round.takeTurn('mutator method')
+    round.takeTurn('array');
+    round.takeTurn('array');
+    round.takeTurn('mutator method');
     let notification = round.endRound();
 
     expect(notification).to.equal('**Round over!** You answered 67% of the questions correctly!');
-
-  })
+  });
 });
