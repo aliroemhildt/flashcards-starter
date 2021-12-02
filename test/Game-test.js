@@ -37,8 +37,8 @@ describe('Game', function() {
 
   it('should keep track of current round', function() {
     let game2 = new Game(data);
-    // expect(game2.currentRound).to.be.an.instanceof(Round);
     expect(game2.currentRound).to.equal(null);
+    expect(game2.currentRound).to.have.a.property
   })
 
   it('should create cards', function() {
@@ -57,13 +57,10 @@ describe('Game', function() {
     let game3 = new Game(data);
     game3.start();
 
-    turn1 = game3.currentRound.takeTurn('array');
-    console.log(game3.currentRound)
-    turn2 = game3.currentRound.takeTurn('array');
-    console.log(game3.currentRound)
-    turn3 = game3.currentRound.takeTurn('mutator method');
-    console.log(game3.currentRound)
+    let turn1 = game3.currentRound.takeTurn('array');
+    let turn2 = game3.currentRound.takeTurn('array');
+    let turn3 = game3.currentRound.takeTurn('mutator method');
 
-    expect(game.currentRound.returnCurrentCard()).to.equal(null);
+    expect(game3.currentRound.endRound()).to.equal('**Round over!** You answered 67% of the questions correctly!');
   })
 })

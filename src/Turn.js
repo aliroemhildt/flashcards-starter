@@ -17,7 +17,7 @@ class Turn {
       this.isCorrect = true;
     } else {
       this.isCorrect = false;
-    }
+    };
     return this.isCorrect;
   };
 

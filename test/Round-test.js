@@ -40,7 +40,7 @@ describe('Round', function() {
 
   // should there be a property for turn, or just return the instance of Turn?
   it('should create a new turn instance', function() {
-    turn = round.takeTurn();
+    let turn = round.takeTurn();
 
     expect(round.currentTurn).to.be.an.instanceof(Turn);
   });
@@ -86,7 +86,7 @@ describe('Round', function() {
     round.takeTurn('array')
     round.takeTurn('array')
     round.takeTurn('mutator method')
-    notification = round.endRound();
+    let notification = round.endRound();
 
     expect(notification).to.equal('**Round over!** You answered 67% of the questions correctly!');
 

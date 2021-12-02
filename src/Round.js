@@ -25,7 +25,6 @@ class Round {
     } else {
       this.currentCard = this.deck.cards[currentIndex + 1];
     };
-    // console.log(this.returnCurrentCard())
     return this.currentTurn.giveFeedback();
   }
 
@@ -36,7 +35,9 @@ class Round {
   }
 
   endRound() {
-    return `**Round over!** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`;
+    let message = `**Round over!** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`
+    console.log(message);
+    return message;
   }
 }
 
