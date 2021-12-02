@@ -40,9 +40,9 @@ describe('Round', function() {
 
   // should there be a property for turn, or just return the instance of Turn?
   it('should create a new turn instance', function() {
-    let newTurn = round.takeTurn();
+    round.takeTurn();
 
-    expect(newTurn).to.be.an.instanceof(Turn);
+    expect(round.currentTurn).to.be.an.instanceof(Turn);
   });
 
   it('should update turn count', function() {
@@ -63,23 +63,22 @@ describe('Round', function() {
 
   it('should store incorrect guesses', function() {
     round.takeTurn('array');
-
-    expect(round.incorrectGuesses).to.equal([1])
+    expect(round.incorrectGuesses).to.deep.equal([1]); // works with deep equal but not equal, why???
   });
 
-  it.skip('should return feedback about guess', function() {
+  it('should return feedback about guess', function() {
     let feedback = round.takeTurn('array');
 
     expect(feedback).to.equal('incorrect!');
   });
 
-  it.skip('should calculate the percentage of correct guesses', function() {
+  it('should calculate the percentage of correct guesses', function() {
     round.takeTurn('array') //incorrect
     round.takeTurn('array') //correct
     round.takeTurn('mutator method') //correct
 
-    let percent = round.calculatePercetCorrect();
+    let percent = round.calculatePercentCorrect();
 
-    expect(percent).to.equal(2/3);
+    expect(percent).to.equal(Math.round((2/3) * 100));
   })
 });
