@@ -18,13 +18,13 @@ class Round {
     this.currentTurn = new Turn(guess, this.currentCard);
     if (!this.currentTurn.evaluateGuess()) {
       this.incorrectGuesses.push(this.currentCard.id);
-    };
+    }
     let currentIndex = this.deck.cards.indexOf(this.currentCard);
     if (currentIndex === this.deck.cards.length - 1) {
       this.currentCard = null;
     } else {
       this.currentCard = this.deck.cards[currentIndex + 1];
-    };
+    }
     return this.currentTurn.giveFeedback();
   }
 
