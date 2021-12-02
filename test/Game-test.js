@@ -35,9 +35,13 @@ describe('Game', function() {
   })
 
   it('should keep track of current round', function() {
+    game.start();
     expect(game.currentRound).to.be.an.instanceof(Round);
   })
 
-  //need to test start method
+  it('should end game', function() {
+    game.start();
+
+  })
 
 })

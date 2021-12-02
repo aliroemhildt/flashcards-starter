@@ -9,9 +9,7 @@ const Round = require('../src/Round');
 
 class Game {
   constructor(data) {
-    this.data = data;
-    this.start();
-
+    this.data = data.prototypeData;
   }
 
   start() {
