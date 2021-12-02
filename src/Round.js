@@ -30,6 +30,10 @@ class Round {
     let percent = Math.round((numCorrect / this.deck.cards.length) * 100);
     return percent;
   }
+
+  endRound() {
+    return `**Round over!** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`;
+  }
 }
 
 module.exports = Round;

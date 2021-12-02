@@ -81,4 +81,14 @@ describe('Round', function() {
 
     expect(percent).to.equal(Math.round((2/3) * 100));
   })
+
+  it('should notify player when round ends', function() {
+    round.takeTurn('array')
+    round.takeTurn('array')
+    round.takeTurn('mutator method')
+    notification = round.endRound();
+
+    expect(notification).to.equal('**Round over!** You answered 67% of the questions correctly!');
+
+  })
 });
