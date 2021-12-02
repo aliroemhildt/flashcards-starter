@@ -9,16 +9,17 @@ const Round = require('../src/Round');
 
 class Game {
   constructor(data) {
-    this.data = data.prototypeData;
+    this.data = data;
+    this.currentRound = null;
   }
 
   start() {
     let cards = this.data.map(element => {
       return new Card(element.id, element.question, element.answers, element.correctAnswer);
     })
-    this.deck = new Deck(cards);
-    this.currentRound = new Round(this.deck);
-    this.printMessage(this.deck, this.round);
+    let deck = new Deck(cards);
+    this.currentRound = new Round(deck);
+    this.printMessage(this.currentRound.deck, this.currentRound);
     this.printQuestion(this.currentRound);
   }
 

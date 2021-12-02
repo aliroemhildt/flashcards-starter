@@ -40,7 +40,7 @@ describe('Round', function() {
 
   // should there be a property for turn, or just return the instance of Turn?
   it('should create a new turn instance', function() {
-    round.takeTurn();
+    turn = round.takeTurn();
 
     expect(round.currentTurn).to.be.an.instanceof(Turn);
   });

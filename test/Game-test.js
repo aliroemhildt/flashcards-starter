@@ -25,6 +25,7 @@ describe('Game', function() {
       "correctAnswer": "mutator method"
     }];
   var game = new Game(data);
+  game.start();
 
   it('should be a function', function() {
     expect(Game).to.be.a('function');
@@ -35,13 +36,34 @@ describe('Game', function() {
   })
 
   it('should keep track of current round', function() {
-    game.start();
+    let game2 = new Game(data);
+    // expect(game2.currentRound).to.be.an.instanceof(Round);
+    expect(game2.currentRound).to.equal(null);
+  })
+
+  it('should create cards', function() {
+    expect(game.currentRound.deck.cards[0]).to.be.an.instanceof(Card);
+  })
+
+  it('should put cards in a deck', function() {
+    expect(game.currentRound.deck).to.be.an.instanceof(Deck);
+  })
+
+  it('should create a new round using the deck', function() {
     expect(game.currentRound).to.be.an.instanceof(Round);
   })
 
-  it('should end game', function() {
-    game.start();
+  it('should end game when all cards are complete', function() {
+    let game3 = new Game(data);
+    game3.start();
 
+    turn1 = game3.currentRound.takeTurn('array');
+    console.log(game3.currentRound)
+    turn2 = game3.currentRound.takeTurn('array');
+    console.log(game3.currentRound)
+    turn3 = game3.currentRound.takeTurn('mutator method');
+    console.log(game3.currentRound)
+
+    expect(game.currentRound.returnCurrentCard()).to.equal(null);
   })
-
 })

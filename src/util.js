@@ -30,12 +30,9 @@ const confirmUpdate = (id, round) => {
 }
 
 async function main(round) {
-
   const currentRound = await getRound(round);
-  console.log(currentRound)
   const getAnswer = await inquirer.prompt(genList(currentRound));
   const getConfirm = await inquirer.prompt(confirmUpdate(getAnswer.answers, round));
-
     if(!round.returnCurrentCard()) {
       round.endRound();
     } else {
