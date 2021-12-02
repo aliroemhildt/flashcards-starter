@@ -39,13 +39,13 @@ describe('Round', function() {
   });
 
   // should there be a property for turn, or just return the instance of Turn?
-  it.skip('should create a new turn instance', function() {
+  it('should create a new turn instance', function() {
     let newTurn = round.takeTurn();
 
     expect(newTurn).to.be.an.instanceof(Turn);
   });
 
-  it.skip('should update turn count', function() {
+  it('should update turn count', function() {
     round.takeTurn('array');
     expect(round.turns).to.equal(1);
 
@@ -53,7 +53,7 @@ describe('Round', function() {
     expect(round.turns).to.equal(2);
   });
 
-  it.skip('should play the next card in deck', function() {
+  it('should play the next card in deck', function() {
     expect(round.currentCard).to.equal(cards[0]);
 
     round.takeTurn('array');
@@ -61,7 +61,7 @@ describe('Round', function() {
     expect(round.currentCard).to.equal(cards[1]);
   });
 
-  it.skip('should store incorrect guesses', function() {
+  it('should store incorrect guesses', function() {
     round.takeTurn('array');
 
     expect(round.incorrectGuesses).to.equal([1])
