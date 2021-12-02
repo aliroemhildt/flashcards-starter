@@ -22,7 +22,6 @@ describe('Turn', function() {
     expect(turn.guess).to.equal('array');
   });
 
-  //Q: okay to use card in expect statement, or should I write out the object long hand?
   //Q: should I split this into two tests?
   it('should store the card in play', function() {
     const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
@@ -31,20 +30,17 @@ describe('Turn', function() {
     expect(turn.card).to.be.an.instanceof(Card);
   });
 
-  //Q: should i use guess var or just put method in expect statment?
   it('should return the guess', function() {
     const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
     const turn = new Turn('array', card);
-    guess = turn.returnGuess();
+    let guess = turn.returnGuess();
     expect(guess).to.equal('array');
   });
 
-  //Q: should i use cardInPlay var or just put method in expect statement?
-  //Q: okay to use card in expect statement, or should I write out the object long hand?
   it('should return the card in play', function() {
     const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
     const turn = new Turn('array', card);
-    cardInPlay = turn.returnCard();
+    let cardInPlay = turn.returnCard();
     expect(cardInPlay).to.equal(card)
   });
 
@@ -53,26 +49,25 @@ describe('Turn', function() {
     const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
 
     const turn1 = new Turn('array', card);
-    guessEval1 = turn1.evaluateGuess();
+    let guessEval1 = turn1.evaluateGuess();
 
     const turn2 = new Turn('object', card);
-    guessEval2 = turn2.evaluateGuess();
+    let guessEval2 = turn2.evaluateGuess();
 
     expect(guessEval1).to.equal(false);
     expect(guessEval2).to.equal(true);
   });
 
-  //Q: is it okay to include evaluateGuess method inside giveFeedback method?
   //Q: should these be separate tests?
   it('should give feedback about the guess', function() {
     const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
 
     const turn1 = new Turn('array', card);
-    feedback1 = turn1.giveFeedback();
+    let feedback1 = turn1.giveFeedback();
 
     const turn2 = new Turn('object', card);
     turn2.evaluateGuess();
-    feedback2 = turn2.giveFeedback();
+    let feedback2 = turn2.giveFeedback();
 
     expect(feedback1).to.equal('incorrect!');
     expect(feedback2).to.equal('correct!');

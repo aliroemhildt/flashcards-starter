@@ -40,7 +40,7 @@ describe('Round', function() {
 
   // should there be a property for turn, or just return the instance of Turn?
   it('should create a new turn instance', function() {
-    round.takeTurn();
+    let turn = round.takeTurn();
 
     expect(round.currentTurn).to.be.an.instanceof(Turn);
   });
@@ -80,5 +80,15 @@ describe('Round', function() {
     let percent = round.calculatePercentCorrect();
 
     expect(percent).to.equal(Math.round((2/3) * 100));
+  })
+
+  it('should notify player when round ends', function() {
+    round.takeTurn('array')
+    round.takeTurn('array')
+    round.takeTurn('mutator method')
+    let notification = round.endRound();
+
+    expect(notification).to.equal('**Round over!** You answered 67% of the questions correctly!');
+
   })
 });
