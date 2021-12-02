@@ -14,7 +14,7 @@ class Game {
   }
 
   start() {
-    let cards = this.data.map(element => {
+    let cards = prototypeQuestions.map(element => {
       return new Card(element.id, element.question, element.answers, element.correctAnswer);
     })
     let deck = new Deck(cards);
