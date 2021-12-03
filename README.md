@@ -24,3 +24,9 @@ To play this game from your terminal:
 - run `node index.js` in your terminal
 - use the up and down arrows or corresponding to select answers
 - press `enter` to move on to the next question
+
+## Project Details
+
+Contributors: Ali Roemhildt
+
+Project Planning: [miro](https://miro.com/app/board/o9J_liB9ot0=/)
